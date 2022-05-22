@@ -7,9 +7,6 @@ else
   vim.notify("nlspsettings.jsonls not found")
 end
 
-print(default_schemas)
-
-
 local schemas = {
   {
     description = "TypeScript compiler configuration file",
