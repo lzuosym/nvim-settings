@@ -99,7 +99,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
     ignore_list = {},
   },
   ignore_ft_on_setup = {
@@ -163,16 +163,18 @@ nvim_tree.setup {
     prefix = "[FILTER]: ",
     always_show_folders = true,
   },
+  -- [Performance issue](https://github.com/kyazdani42/nvim-tree.lua#performance-issues)
+  -- https://github.com/kyazdani42/nvim-tree.lua/issues/549
   log = {
-    enable = false,
-    truncate = false,
+    enable = true,
+    truncate = true,
     types = {
       all = false,
       config = false,
       copy_paste = false,
       diagnostics = false,
-      git = false,
-      profile = false,
+      git = true,
+      profile = true,
     },
   },
 }

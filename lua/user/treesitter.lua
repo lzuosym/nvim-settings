@@ -9,11 +9,11 @@ end
 -- local tsx = require('tree-sitter-typescript').tsx
 
 configs.setup {
---  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"bash", "c", "cpp", "make", "cmake", "ninja", "lua", "rust", "toml", "go", "gomod", "proto",
+  --  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = { "bash", "c", "cpp", "make", "cmake", "ninja", "lua", "rust", "toml", "go", "gomod", "proto",
     "python", "regex", "yaml",
-    "fish", "html", "json",  "javascript", "typescript", "tsx", "scss",
-    "css", "dockerfile", "latex"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    "fish", "html", "json", "javascript", "typescript", "tsx", "scss",
+    "css", "dockerfile", "latex" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
@@ -24,7 +24,7 @@ configs.setup {
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
---  indent = { enable = true, disable = { "yaml" } },
+  --  indent = { enable = true, disable = { "yaml" } },
   indent = { enable = true },
   context_commentstring = {
     enable = true,
@@ -41,4 +41,3 @@ configs.setup {
     },
   },
 }
-

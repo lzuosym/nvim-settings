@@ -1,5 +1,5 @@
 return {
-	settings = {
+  settings = {
     python = {
       analysis = {
         autoSearchPaths = true,
@@ -7,6 +7,5 @@ return {
         useLibraryCodeForTypes = true
       }
     }
-	},
+  },
 }
-

@@ -10,6 +10,7 @@ local keymap = vim.keymap.set
 --Add leader shortcuts
 keymap('n', '<leader><space>', require('telescope.builtin').buffers)
 -- keymap('n', '<leader>sf', function() require('telescope.builtin').find_files { previewer = false } end)
+keymap('n', '<leader>?', require('telescope.builtin').oldfiles)
 keymap('n', '<leader>sf', require('telescope.builtin').find_files)
 keymap('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
 keymap('n', '<leader>sh', require('telescope.builtin').help_tags)
@@ -17,14 +18,13 @@ keymap('n', '<leader>st', require('telescope.builtin').tags)
 keymap('n', '<leader>sd', require('telescope.builtin').grep_string)
 keymap('n', '<leader>sp', require('telescope.builtin').live_grep)
 keymap('n', '<leader>so', function() require('telescope.builtin').tags { only_current_buffer = true } end)
-keymap('n', '<leader>?', require('telescope.builtin').oldfiles)
+keymap('n', '<leader>sdl', require('telescope.builtin').diagnostics)
 
 
 local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },

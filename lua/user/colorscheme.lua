@@ -1,4 +1,5 @@
-local colorscheme = "darkplus"
+-- local colorscheme = "darkplus"
+local colorscheme = "onedarkpro"
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
@@ -17,4 +18,3 @@ end
 --   set background=dark
 -- endtry
 -- ]]
-
