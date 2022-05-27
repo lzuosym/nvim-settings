@@ -54,7 +54,7 @@ return packer.startup(function(use)
   -- use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
-  -- use "lewis6991/impatient.nvim"
+  use "lewis6991/impatient.nvim"
   -- use "lukas-reineke/indent-blankline.nvim"
   -- use "goolord/alpha-nvim"
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
@@ -84,12 +84,15 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "mfussenegger/nvim-dap"
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
   --  Rust
   use "simrat39/rust-tools.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Treesitter
   use {
@@ -110,4 +113,3 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
-

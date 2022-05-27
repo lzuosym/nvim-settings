@@ -10,16 +10,22 @@ local keymap = vim.keymap.set
 --Add leader shortcuts
 keymap('n', '<leader><space>', require('telescope.builtin').buffers)
 -- keymap('n', '<leader>sf', function() require('telescope.builtin').find_files { previewer = false } end)
-keymap('n', '<leader>?', require('telescope.builtin').oldfiles)
+keymap('n', '<leader>so', require('telescope.builtin').oldfiles)
 keymap('n', '<leader>sf', require('telescope.builtin').find_files)
 keymap('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
 keymap('n', '<leader>sh', require('telescope.builtin').help_tags)
 keymap('n', '<leader>st', require('telescope.builtin').tags)
-keymap('n', '<leader>sd', require('telescope.builtin').grep_string)
-keymap('n', '<leader>sp', require('telescope.builtin').live_grep)
-keymap('n', '<leader>so', function() require('telescope.builtin').tags { only_current_buffer = true } end)
+keymap('n', '<leader>sp', require('telescope.builtin').grep_string)
+keymap('n', '<leader>ss', require('telescope.builtin').live_grep)
+-- keymap('n', '<leader>so', function() require('telescope.builtin').tags { only_current_buffer = true } end)
 keymap('n', '<leader>sdl', require('telescope.builtin').diagnostics)
 
+-- file_browser
+keymap( "n", "<space>fb", ":Telescope file_browser<cr>", { noremap = true })
+
+-- telescope-ui-select.nvim extension
+telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
 
 local actions = require "telescope.actions"
 
@@ -103,12 +109,42 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
-  extensions = {
+ extensions = {
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    },
+    -- file_browser = {
+    --   theme = "ivy",
+    --   -- disables netrw and use telescope-file-browser in its place
+    --   hijack_netrw = true,
+    --   mappings = {
+    --     ["i"] = {
+    --       -- your custom insert mode mappings
+    --     },
+    --     ["n"] = {
+    --       -- your custom normal mode mappings
+    --     },
+    --   },
+    -- }
+    -- pseudo code / specification for writing custom displays, like the one
+    -- for "codeactions"
+    -- specific_opts = {
+    --   [kind] = {
+    --     make_indexed = function(items) -> indexed_items, width,
+    --     make_displayer = function(widths) -> displayer
+    --     make_display = function(displayer) -> function(e)
+    --     make_ordinal = function(e) -> string
+    --   },
+    --   -- for example to disable the custom builtin "codeactions" display
+    --      do the following
+    --   codeactions = false,
+    -- }
   },
 }
-

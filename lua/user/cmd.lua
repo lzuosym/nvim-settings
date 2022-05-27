@@ -105,7 +105,8 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[NVM_LUA]",
-        luasnip = "[Snippet]",
+        -- luasnip = "[Snippet]",
+        luasnip = "[LuaSnip]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]

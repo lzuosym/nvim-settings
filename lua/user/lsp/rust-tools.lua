@@ -1,6 +1,6 @@
 -- https://github.com/simrat39/rust-tools.nvim
 
-local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vxscode-lldb-1.7.0/"
+local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 local opts = {
@@ -193,7 +193,9 @@ local opts = {
           command = "clippy"
         },
       }
-    }
+    },
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
   }, -- rust-analyer options
 
   -- debugging stuff
@@ -204,3 +206,10 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+
+
+
+
+
+
+
