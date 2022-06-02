@@ -86,7 +86,7 @@ local opts = {
 
       -- whether the hover action window gets automatically focused
       -- default: false
-      auto_focus = false,
+      auto_focus = true,
     },
 
     -- settings for showing the crate graph based on graphviz and the dot
@@ -95,7 +95,7 @@ local opts = {
       -- Backend used for displaying the graph
       -- see: https://graphviz.org/docs/outputs/
       -- default: x11
-      backend = "x11",
+      backend = "jpeg",
       -- where to store the output, nil for no output stored (relative
       -- path from pwd)
       -- default: nil

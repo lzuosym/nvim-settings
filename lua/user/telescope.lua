@@ -21,13 +21,15 @@ keymap('n', '<leader>ss', require('telescope.builtin').live_grep)
 keymap('n', '<leader>sdl', require('telescope.builtin').diagnostics)
 
 -- file_browser
-keymap( "n", "<space>fb", ":Telescope file_browser<cr>", { noremap = true })
+keymap("n", "<space>fb", ":Telescope file_browser<cr>", { noremap = true })
 
 -- telescope-ui-select.nvim extension
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
 
 local actions = require "telescope.actions"
+
+local trouble = require "trouble.providers.telescope"
 
 telescope.setup {
   defaults = {
@@ -53,6 +55,8 @@ telescope.setup {
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
+        -- ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
+
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
 
@@ -73,6 +77,8 @@ telescope.setup {
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
+
+        -- ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -109,7 +115,7 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
- extensions = {
+  extensions = {
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,

@@ -1,26 +1,3 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
   vim.notify("nvim-tree plugin not found")
@@ -35,8 +12,8 @@ end
 
 -- auto_close https://github.com/kyazdani42/nvim-tree.lua/issues/1005
 vim.api.nvim_create_autocmd('BufEnter', {
-    command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
-    nested = true,
+  command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
+  nested = true,
 })
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
@@ -91,6 +68,28 @@ nvim_tree.setup {
     icons = {
       webdev_colors = true,
       git_placement = "before",
+      -- following options are the default
+      -- each of these are documented in `:help nvim-tree.OPTION_NAME`
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      },
     },
   },
   hijack_directories = {
@@ -178,4 +177,3 @@ nvim_tree.setup {
     },
   },
 }
-

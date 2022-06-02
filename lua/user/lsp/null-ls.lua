@@ -12,6 +12,8 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
+    formatting.eslint,
+    formatting.clang_format,
     formatting.rustfmt,
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     -- formatting.black.with({ extra_args = { "--fast" } }), -- if you don't need sanity check
