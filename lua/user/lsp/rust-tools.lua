@@ -192,6 +192,11 @@ local opts = {
         checkOnSave = {
           command = "clippy"
         },
+        diagnostics = {
+          enable = true,
+          disabled = { "unresolved-proc-macro" },
+          enableExperimental = true,
+        },
       }
     },
     on_attach = require("user.lsp.handlers").on_attach,
@@ -206,10 +211,3 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-
-
-
-
-
-
-

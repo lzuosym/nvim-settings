@@ -26,6 +26,7 @@ keymap("n", "<space>fb", ":Telescope file_browser<cr>", { noremap = true })
 -- telescope-ui-select.nvim extension
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
+telescope.load_extension('possession')
 
 local actions = require "telescope.actions"
 
@@ -55,7 +56,7 @@ telescope.setup {
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        -- ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
+        ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
 
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
@@ -78,7 +79,7 @@ telescope.setup {
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        -- ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
+        ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,

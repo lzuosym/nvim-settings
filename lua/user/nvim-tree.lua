@@ -4,11 +4,7 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  vim.notify("nvim-tree.config not found")
-  return
-end
+local nvim_tree_config = require("nvim-tree.config")
 
 -- auto_close https://github.com/kyazdani42/nvim-tree.lua/issues/1005
 vim.api.nvim_create_autocmd('BufEnter', {
@@ -22,6 +18,7 @@ local function print_node_path(node)
 end
 
 nvim_tree.setup {
+  respect_buf_cwd = true,  -- for projects plugin
   auto_reload_on_write = true,
   disable_netrw = true,
   hijack_netrw = true,
@@ -98,7 +95,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_cwd = false,
+    update_cwd = true,
     ignore_list = {},
   },
   ignore_ft_on_setup = {

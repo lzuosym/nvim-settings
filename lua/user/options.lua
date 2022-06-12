@@ -25,7 +25,7 @@ local options = {
   numberwidth = 4, -- set number column width to 2 {default 4}
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   wrap = false, -- display lines as one long line
-  scrolloff = 8, -- is one of my fav
+  scrolloff = 3, -- is one of my fav
   sidescrolloff = 8,
   list = true,
 
@@ -47,3 +47,16 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- Save last cursor position whenfile reopen
+vim.cmd([[
+augroup vimrc-remember-cursor-position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+]])
+
+-- Highlight on yank
+vim.cmd [[autocmd TextYankPost * lua vim.highlight.on_yank {on_visual = false}]]
+
+

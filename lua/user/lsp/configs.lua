@@ -5,9 +5,10 @@ if not status_ok then
 end
 
 local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
 
 -- local servers = { "jsonls", "sumneko_lua", "pyright", "rust_analyzer", "yamlls", "bashls" }
-local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver" }
+local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls" }
 
 lsp_installer.setup({
   ensure_installed = servers,
@@ -21,7 +22,8 @@ for _, server in pairs(servers) do
   local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
-    if server == "rust_analyzer" then
+    if server == "gopls" then
+      -- lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" }, root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
       lspconfig[server].setup(opts)
     else
       lspconfig[server].setup(opts)

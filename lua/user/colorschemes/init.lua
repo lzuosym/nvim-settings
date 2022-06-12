@@ -1,3 +1,3 @@
 -- TODO
-require("onedarkpro")
+require 'user.colorschemes.onedarkpro'
 

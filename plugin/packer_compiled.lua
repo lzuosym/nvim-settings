@@ -79,15 +79,35 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cheat-sheet"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/cheat-sheet",
+    url = "https://github.com/Djancyp/cheat-sheet"
+  },
+  ["close-buffers.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/close-buffers.nvim",
+    url = "https://github.com/kazhala/close-buffers.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -129,15 +149,40 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -150,6 +195,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  neotest = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
@@ -180,6 +230,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -221,6 +276,11 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -231,10 +291,25 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["possession.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/possession.nvim",
+    url = "https://github.com/jedrzejboczar/possession.nvim"
+  },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -266,10 +341,25 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  vim = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/dracula/vim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://github.com/MattesGroeger/vim-bookmarks"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

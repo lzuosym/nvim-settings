@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-bufferline.setup {
+bufferline.setup({
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -56,7 +56,8 @@ bufferline.setup {
     --     return true
     --   end
     -- end,
-    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+    offsets = { { filetype = "NvimTree", text = "", highlight = "Directory", padding = 1 } },
+    -- offsets = { { filetype = "NvimTree", text = function() return vim.fn.getcwd() end, highlight = "Directory", text_align = "left" } },
     show_buffer_icons = true,
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -165,5 +166,4 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "Normal" },
     },
   },
-}
-
+})

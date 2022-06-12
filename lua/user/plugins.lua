@@ -48,17 +48,22 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
+  use "nvim-lualine/lualine.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "Pocco81/AutoSave.nvim"
-  use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
-  -- use "ahmedkhalf/project.nvim"
+  use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
-  -- use "lukas-reineke/indent-blankline.nvim"
-  -- use "goolord/alpha-nvim"
-  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  -- use "folke/which-key.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "goolord/alpha-nvim"
+  use "jedrzejboczar/possession.nvim"
+  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  use "folke/which-key.nvim"
+  use 'kazhala/close-buffers.nvim'
+  use "MattesGroeger/vim-bookmarks"
+  use "ThePrimeagen/harpoon"
+  use "Djancyp/cheat-sheet"
 
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
@@ -66,6 +71,7 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
   use 'olimorris/onedarkpro.nvim'
+  use 'dracula/vim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,10 +93,20 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "mfussenegger/nvim-dap"
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use 'theHamsta/nvim-dap-virtual-text'
   use "folke/trouble.nvim" -- A pretty diagnostics, references, telescope results, quickfix and location list
+
+  -- Test
+  use { "nvim-neotest/neotest", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "antoinemadec/FixCursorHold.nvim" } }
 
   --  Rust
   use "simrat39/rust-tools.nvim"
+
+  -- Golang
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommanded if need floating window support
+  -- use 'leoluz/nvim-dap-go'
+
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -103,12 +119,15 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "nvim-treesitter/playground"
+  use "simrat39/symbols-outline.nvim"
 
   -- Git
   use {
     "lewis6991/gitsigns.nvim",
     tag = 'release' -- To use the latest release
   }
+  use "f-person/git-blame.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
