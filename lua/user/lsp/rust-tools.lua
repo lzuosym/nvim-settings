@@ -1,8 +1,8 @@
 -- https://github.com/simrat39/rust-tools.nvim
 
-local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
+local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.7.3/"
 local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 local opts = {
   tools = { -- rust-tools options
     -- automatically set inlay hints (type hints)
@@ -15,7 +15,7 @@ local opts = {
     -- whether to show hover actions inside the hover window
     -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
     -- default: true
-    hover_with_actions = true,
+    -- hover_with_actions = true,
 
     -- how to execute terminal commands
     -- options right now: termopen / quickfix

@@ -36,6 +36,11 @@ local options = {
   conceallevel = 0, -- so that `` is visible in markdown files
   pumheight = 10, -- pop up menu height
   showtabline = 2, -- always show tabs
+
+  --[[ foldcolumn = '1', ]]
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldenable = true,
 }
 
 vim.opt.shortmess:append "c"

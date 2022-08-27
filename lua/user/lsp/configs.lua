@@ -7,8 +7,7 @@ end
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
--- local servers = { "jsonls", "sumneko_lua", "pyright", "rust_analyzer", "yamlls", "bashls" }
-local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls" }
+local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html" }
 
 lsp_installer.setup({
   ensure_installed = servers,
@@ -23,8 +22,8 @@ for _, server in pairs(servers) do
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
     if server == "gopls" then
-      -- lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" }, root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
-      lspconfig[server].setup(opts)
+      lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" }, root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
+      -- lspconfig[server].setup(opts)
     else
       lspconfig[server].setup(opts)
     end

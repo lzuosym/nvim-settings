@@ -36,7 +36,6 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true, -------
     preserve_window_proportions = false,
     number = false,
     relativenumber = false,
@@ -106,10 +105,6 @@ nvim_tree.setup {
   system_open = {
     cmd = nil,
     args = {},
-  },
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
   },
   diagnostics = {
     enable = true,

@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -93,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
+  },
+  ["auto-save.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
+    url = "https://github.com/Pocco81/auto-save.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
@@ -261,6 +261,11 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -301,10 +306,20 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
+  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  ["surround.nvim"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/surround.nvim",
+    url = "https://github.com/ur4ltz/surround.nvim"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,

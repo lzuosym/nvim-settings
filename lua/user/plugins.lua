@@ -47,11 +47,11 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use ({"kyazdani42/nvim-tree.lua", branch = "master"})
   use "nvim-lualine/lualine.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use "Pocco81/AutoSave.nvim"
+  use "Pocco81/auto-save.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -64,8 +64,11 @@ return packer.startup(function(use)
   use "MattesGroeger/vim-bookmarks"
   use "ThePrimeagen/harpoon"
   use "Djancyp/cheat-sheet"
+  use "ur4ltz/surround.nvim"
 
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
