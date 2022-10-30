@@ -20,4 +20,4 @@ close_buffers.setup({
 vim.api.nvim_set_keymap('n', '<leader>bh', "<cmd>lua require('close_buffers').delete({type = 'hidden'})<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bu', "<cmd>lua require('close_buffers').delete({type = 'nameless'})<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bc', "<cmd>lua require('close_buffers').delete({type = 'this'})<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-o>', "<cmd>lua require('close_buffers').wipe({type = 'other'})<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-o>', "<Cmd>lua require('close_buffers').wipe({type = 'other'})<CR>", { noremap = true, silent = true })

@@ -47,11 +47,11 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
-  use ({"kyazdani42/nvim-tree.lua", branch = "master"})
+  use({ "kyazdani42/nvim-tree.lua", branch = "master" })
   use "nvim-lualine/lualine.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use "Pocco81/auto-save.nvim"
+  --[[ use "Pocco81/auto-save.nvim" ]]
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -64,17 +64,19 @@ return packer.startup(function(use)
   use "MattesGroeger/vim-bookmarks"
   use "ThePrimeagen/harpoon"
   use "Djancyp/cheat-sheet"
-  use "ur4ltz/surround.nvim"
+  use "kylechui/nvim-surround"
+  use 'dstein64/nvim-scrollview'
 
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
   use 'olimorris/onedarkpro.nvim'
   use 'dracula/vim'
+  use "lunarvim/Onedarker.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -98,6 +100,8 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use 'theHamsta/nvim-dap-virtual-text'
   use "folke/trouble.nvim" -- A pretty diagnostics, references, telescope results, quickfix and location list
+  use "ray-x/lsp_signature.nvim"
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- Test
   use { "nvim-neotest/neotest", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "antoinemadec/FixCursorHold.nvim" } }
@@ -128,7 +132,7 @@ return packer.startup(function(use)
   -- Git
   use {
     "lewis6991/gitsigns.nvim",
-    tag = 'release' -- To use the latest release
+    --[[ tag = 'release' -- To use the latest release ]]
   }
   use "f-person/git-blame.nvim"
 
