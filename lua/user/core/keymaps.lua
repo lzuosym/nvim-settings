@@ -58,13 +58,11 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Nvimtree: defined in which-key
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
 -- Format code
--- keymap("n", "M-t", ":Format<cr>", opts)
 keymap("n", "<M-l>", ":Format<cr>", opts)
 
+-- Register
+keymap("n", "x", '"_x', opts)
 
 -- Debugging
 keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)
@@ -76,12 +74,3 @@ keymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpo
 keymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
 keymap("n", "<leader>dc", ":lua require'dap'.repl.close()<CR>", opts)
-
-
-
-
-
-
-
-
-

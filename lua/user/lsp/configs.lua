@@ -1,17 +1,7 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-  vim.notify("nvim-lsp-installer not found")
-  return
-end
-
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
 local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html" }
-
-lsp_installer.setup({
-  ensure_installed = servers,
-})
 
 for _, server in pairs(servers) do
   local opts = {

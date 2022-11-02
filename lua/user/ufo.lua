@@ -7,7 +7,8 @@ end
 local ftMap = {
   vim = 'indent',
   python = { 'indent' },
-  git = ''
+  git = '',
+  yaml = 'indent',
 }
 
 local opt = {
@@ -32,7 +33,8 @@ local opt = {
 
     -- if you prefer treesitter provider rather than lsp,
     -- return ftMap[filetype] or {'treesitter', 'indent'}
-    return ftMap[filetype]
+    return {'treesitter', 'indent'}
+    --[[ return ftMap[filetype] ]]
   end
 }
 ufo.setup(opt)

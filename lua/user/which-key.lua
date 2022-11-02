@@ -150,8 +150,10 @@ local mappings = {
 
   s = {
     name = "Split",
-    s = { "<cmd>split<cr>", "HSplit" },
-    v = { "<cmd>vsplit<cr>", "VSplit" },
+    ["-"] = { "<cmd>split<cr>", "HSplit" },
+    ["|"] = { "<cmd>vsplit<cr>", "VSplit" },
+    e = { "<C-w>=", "Equal Width and Height" },
+    c = { "<cmd>:close<cr>", "Close Current Window" },
   },
 
   r = {

@@ -24,19 +24,23 @@ local options = {
   termguicolors = true, -- set term gui colors (most terminals support this)
   --[[ background = "dark", ]]
 
-
   -- backspace
-  --[[ backspace = "indent,eol,start", ]]
+  backspace = "indent,eol,start",
+
+  -- clipboard
+  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+
+  -- split windows
+  splitbelow = true, -- force all horizontal splits to go below current window
+  splitright = true, -- force all vertical splits to go to the right of current window
+
 
   backup = false, -- creates a backup file
-  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
   fileencoding = "utf-8", -- the encoding written to a file
   mouse = "a", -- allow the mouse to be used in neovim
   showmode = true, -- we don't need to see things like -- INSERT -- anymore
   smartindent = true, -- make indenting smarter again
-  splitbelow = true, -- force all horizontal splits to go below current window
-  splitright = true, -- force all vertical splits to go to the right of current window
   swapfile = false, -- creates a swapfile
   timeoutlen = 560, -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true, -- enable persistent undo

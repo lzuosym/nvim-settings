@@ -8,15 +8,16 @@ end
 local keymap = vim.keymap.set
 
 --Add leader shortcuts
+keymap('n', '<leader>sf', require('telescope.builtin').find_files)
+keymap('n', '<leader>sp', require('telescope.builtin').grep_string)
+keymap('n', '<leader>sg', require('telescope.builtin').live_grep)
+
 keymap('n', '<leader><space>', require('telescope.builtin').buffers)
 -- keymap('n', '<leader>sf', function() require('telescope.builtin').find_files { previewer = false } end)
 keymap('n', '<leader>so', require('telescope.builtin').oldfiles)
-keymap('n', '<leader>sf', require('telescope.builtin').find_files)
 keymap('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
 keymap('n', '<leader>sh', require('telescope.builtin').help_tags)
 keymap('n', '<leader>st', require('telescope.builtin').tags)
-keymap('n', '<leader>sp', require('telescope.builtin').grep_string)
-keymap('n', '<leader>ss', require('telescope.builtin').live_grep)
 -- keymap('n', '<leader>so', function() require('telescope.builtin').tags { only_current_buffer = true } end)
 keymap('n', '<leader>sdl', require('telescope.builtin').diagnostics)
 
@@ -27,6 +28,7 @@ keymap("n", "<space>fb", ":Telescope file_browser<cr>", { noremap = true })
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
 telescope.load_extension('possession')
+telescope.load_extension('fzf')
 
 local actions = require "telescope.actions"
 
@@ -45,7 +47,6 @@ telescope.setup {
 
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-
         ["<C-c>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
@@ -57,7 +58,6 @@ telescope.setup {
         ["<C-t>"] = actions.select_tab,
 
         ["<M-t>"] = trouble.open_with_trouble, -- trouble shortcuts ?? not working??
-
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
 
@@ -127,6 +127,12 @@ telescope.setup {
         -- even more opts
       }
     },
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case", the default case_mode is "smart_case"
+    }
     -- file_browser = {
     --   theme = "ivy",
     --   -- disables netrw and use telescope-file-browser in its place
