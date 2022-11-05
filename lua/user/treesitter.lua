@@ -10,8 +10,8 @@ end
 
 configs.setup {
   --  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = { "bash", "c", "cpp", "make", "cmake", "ninja", "lua", "rust", "toml", "go", "gomod", "proto",
-    "python", "regex", "yaml", "vim",
+  ensure_installed = { "bash", "c", "cpp", "make", "markdown", "cmake", "ninja", "lua", "rust", "toml", "go", "gomod", "proto",
+    "python", "regex", "yaml", "vim", "graphql", "gitignore",
     "fish", "html", "json", "javascript", "typescript", "tsx", "scss",
     "css", "dockerfile", "latex" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)

@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "windwp/nvim-ts-autotag"
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use({ "kyazdani42/nvim-tree.lua", branch = "master" })
@@ -93,21 +94,23 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
-  -- Manage and install lsp servers
+  -- Manage and install lsp servers, linters and formatters
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
-  --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
   -- LSP server configuration
   use "neovim/nvim-lspconfig" -- enable LSP
   use ({ "glepnir/lspsaga.nvim", branch= "main"  })
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "mfussenegger/nvim-dap"
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use 'theHamsta/nvim-dap-virtual-text'
   use "folke/trouble.nvim" -- A pretty diagnostics, references, telescope results, quickfix and location list
   use "ray-x/lsp_signature.nvim"
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'onsails/lspkind.nvim'
+
+  -- formatting and linting
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Test
   use { "nvim-neotest/neotest", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "antoinemadec/FixCursorHold.nvim" } }

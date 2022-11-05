@@ -1,9 +1,7 @@
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
-local servers = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html" }
-
-for _, server in pairs(servers) do
+for _, server in pairs(LSP_SERVERS) do
   local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
@@ -12,7 +10,8 @@ for _, server in pairs(servers) do
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
     if server == "gopls" then
-      lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" }, root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
+      lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" },
+        root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
       -- lspconfig[server].setup(opts)
     else
       lspconfig[server].setup(opts)
