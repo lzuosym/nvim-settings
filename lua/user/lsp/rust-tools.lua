@@ -7,12 +7,15 @@ if not status_ok then
 end
 
 --  ~/.vscode/extensions/
-local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 local opts = {
   tools = { -- rust-tools options
+    runnables = {
+      use_telescope = true,
+    },
 
     -- how to execute terminal commands
     -- options right now: termopen / quickfix
@@ -83,8 +86,7 @@ local opts = {
       auto_focus = false,
     },
 
-    -- settings for showing the crate graph based on graphviz and the dot
-    -- command
+    -- settings for showing the crate graph based on graphviz and the dot command
     crate_graph = {
       -- Backend used for displaying the graph
       -- see: https://graphviz.org/docs/outputs/
@@ -168,43 +170,76 @@ local opts = {
     -- standalone file support
     -- setting it to false may improve startup time
     standalone = true,
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      local opts = { noremap = true, silent = true, buffer = bufnr }
-      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-      --[[ vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window ]]
-      --[[ vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references ]]
-      vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-      vim.keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-      vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-      vim.keymap.set("n", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-      vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-      --[[ vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts) ]]
-      --[[ vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts) ]]
-      vim.keymap.set("n", "[d", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-      vim.keymap.set("n", "]d", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-      vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-      vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float(nil, { source = "always" })<CR>'
-        , opts)
-      -- vim.keymap.set("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      vim.keymap.set("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-      vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-    end,
+
+    settings = {
+      -- to enable rust-analyzer settings visit:
+      -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+      ["rust-analyzer"] = {
+        assist = {
+          importGranularity = "module",
+          importPrefix = "self",
+        },
+        cargo = {
+          loadOutDirsFromCheck = true,
+        },
+        procMacro = {
+          enable = true,
+        },
+        -- enable clippy on save
+        checkOnSave = {
+          command = "clippy",
+        },
+        diagnostics = {
+          enable = true,
+          disabled = { "unresolved-proc-macro" },
+          enableExperimental = true,
+        },
+      },
+    },
+    on_attach = require("user.lsp.handlers").on_attach,
+--    on_attach = function(_, bufnr)
+--      local opts = { noremap = true, silent = true, buffer = bufnr }
+--      -- Hover actions
+--      vim.keymap.set("n", "<ghc>", rt.hover_actions.hover_actions, opts)
+--      -- Code action groups
+--      vim.keymap.set("n", "gca", rt.code_action_group.code_action_group, opts)
+--      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+--      vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+--      vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+--      vim.keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+--      vim.keymap.set("n", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+--      vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+--      vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+--      vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+--      vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float(nil, { source = "always" })<CR>', opts)
+--      vim.keymap.set("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+--      -- Lspsaga configuration
+--      --[[ vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references ]]
+--      vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+--      vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+--      vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts) ]]
+--      --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>O", "<cmd>LSoutlineToggle<CR>", opts) ]]
+--      vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format { async = true }' ]])
+--    end,
+    capabilities = require("user.lsp.handlers").capabilities,
   }, -- rust-analyzer options
 
   -- debugging stuff
   dap = {
-    --[[ adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path) ]]
-    adapter = {
-      type = "executable",
-      command = "lldb-vscode",
-      name = "rt_lldb",
-    },
+    adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+    --[[ adapter = { ]]
+    --[[   type = "executable", ]]
+    --[[   command = "lldb-vscode", ]]
+    --[[   name = "rt_lldb", ]]
+    --[[ }, ]]
   },
 }
 
-require('rust-tools').setup(opts)
+rt.setup(opts)

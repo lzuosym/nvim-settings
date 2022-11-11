@@ -51,7 +51,10 @@ local options = {
   sidescrolloff = 8,
   list = true,
 
-
+ --[[ Set completeopt to have a better completion experience, :help completeopt ]]
+ --[[ menuone: popup even when there's only one match ]]
+ --[[ noinsert: Do not insert text until a selection is made ]]
+ --[[ noselect: Do not select, force user to select one from the menu ]]
   completeopt = { "menu", "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   pumheight = 10, -- pop up menu height

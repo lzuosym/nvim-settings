@@ -64,7 +64,7 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)  -- show definition, references
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
@@ -74,17 +74,22 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts) ]]
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts) ]]
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float(nil, { source = "always" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    "n",
+    "gl",
+    '<cmd>lua vim.diagnostic.open_float(nil, { source = "always" })<CR>',
+    opts
+  )
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts) ]]
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts) ]]
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>O", "<cmd>LSoutlineToggle<CR>", opts) ]]
-
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format { async = true }' ]])
 end
 
@@ -101,7 +106,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
-  lineFoldingOnly = true
+  lineFoldingOnly = true,
 }
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

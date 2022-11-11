@@ -17,7 +17,7 @@ null_ls.setup({
     -- formatting
     formatting.eslint_d,
     formatting.clang_format,
-    formatting.rustfmt,
+    --[[ formatting.rustfmt, ]]
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     -- formatting.black.with({ extra_args = { "--fast" } }), -- if you don't need sanity check
     formatting.black,

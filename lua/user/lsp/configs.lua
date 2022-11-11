@@ -12,7 +12,6 @@ for _, server in pairs(LSP_SERVERS) do
     if server == "gopls" then
       lspconfig[server].setup({ cmd = { "gopls", "serve" }, filetypes = { "go", "gomod" },
         root_dir = util.root_pattern("go.work", "go.mod", ".git"), opts })
-      -- lspconfig[server].setup(opts)
     else
       lspconfig[server].setup(opts)
     end

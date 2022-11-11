@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -290,11 +295,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-treesitter-textobjects"] = {
-    loaded = true,
-    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,

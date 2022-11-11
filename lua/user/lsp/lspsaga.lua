@@ -6,14 +6,23 @@ if not status_ok then
 end
 
 saga.init_lsp_saga({
-  move_in_saga = { prev = "C-k", next = "<C-j>"},
+  move_in_saga = { prev = "C-k", next = "<C-j>" },
   finder_action_keys = {
-    open = "<CR>"
+    open = "<CR>",
   },
-  definition_action_keys =  {
-    edit = "<CR>"
+  definition_action_keys = {
+    edit = "<CR>",
   },
   -- preview lines of lsp_finder and definition preview
-  max_preview_lines = 20,
+  max_preview_lines = 30,
 
+  code_action_lightbulb = {
+    enable = true,
+    enable_in_insert = true,
+    cache_code_action = true,
+    sign = true,
+    update_time = 850,
+    sign_priority = 20,
+    virtual_text = true,
+  },
 })

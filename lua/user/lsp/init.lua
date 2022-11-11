@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 LSP_SERVERS = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html",
-  "dockerls", "rust_analyzer"}
+  "dockerls"}
+  --[[ "dockerls", "rust_analyzer"} ]]
 
 require "user.lsp.lspsaga"
 require "user.lsp.mason"

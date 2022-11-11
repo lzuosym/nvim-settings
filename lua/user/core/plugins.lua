@@ -86,7 +86,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lsp" -- cmp lsp completion
+  use "hrsh7th/cmp-vsnip" -- cmp Snippet completion
   use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
@@ -97,6 +98,7 @@ return packer.startup(function(use)
   -- Manage and install lsp servers, linters and formatters
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
+
   -- LSP server configuration
   use "neovim/nvim-lspconfig" -- enable LSP
   use ({ "glepnir/lspsaga.nvim", branch= "main"  })
@@ -106,7 +108,8 @@ return packer.startup(function(use)
   use 'theHamsta/nvim-dap-virtual-text'
   use "folke/trouble.nvim" -- A pretty diagnostics, references, telescope results, quickfix and location list
   use "ray-x/lsp_signature.nvim"
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  -- breaks rust
+  --[[ use 'nvim-treesitter/nvim-treesitter-textobjects' ]]
   use 'onsails/lspkind.nvim'
 
   -- formatting and linting

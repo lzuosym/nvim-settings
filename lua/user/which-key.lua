@@ -116,7 +116,6 @@ local mappings = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
   ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
   -- :lua require'lir.float'.toggle()
@@ -127,7 +126,7 @@ local mappings = {
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   -- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
-  ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
+  --[[ ["z"] = { "<cmd>ZenMode<cr>", "Zen" }, ]]
   ["gy"] = "Link",
 
   p = {
@@ -154,6 +153,7 @@ local mappings = {
     ["|"] = { "<cmd>vsplit<cr>", "VSplit" },
     e = { "<C-w>=", "Equal Width and Height" },
     c = { "<cmd>:close<cr>", "Close Current Window" },
+    u = { "<cmd>:setlocal spell! spelllang=en_us<cr>", "Toggle Spell Check"}
   },
 
   r = {
@@ -187,7 +187,8 @@ local mappings = {
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+--      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "<cmd>lua require('telescope.builtin').find_files()<cr>",
       "Find files",
     },
     -- t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
