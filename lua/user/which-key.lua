@@ -148,19 +148,31 @@ local mappings = {
   },
 
   s = {
-    name = "Split",
+    name = "Split, Spell and Spectre",
     ["-"] = { "<cmd>split<cr>", "HSplit" },
     ["|"] = { "<cmd>vsplit<cr>", "VSplit" },
     e = { "<C-w>=", "Equal Width and Height" },
     c = { "<cmd>:close<cr>", "Close Current Window" },
-    u = { "<cmd>:setlocal spell! spelllang=en_us<cr>", "Toggle Spell Check"}
-  },
-
-  r = {
-    name = "Replace",
+    u = { "<cmd>:setlocal spell! spelllang=en_us<cr>", "Toggle Spell Check"},
     r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
     w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+  },
+
+  r = {
+    name = "Rust",
+    r = { "<cmd>RustRunnables<cr>", "RustRunnables" },
+    d = { "<cmd>RustDebuggables<cr>", "RustDebuggables" },
+    e = { "<cmd>RustExpandMacro<cr>", "RustExpandMacro" },
+    h = { "<cmd>RustHoverActions<cr>", "RustHoverActions" },
+    H = {
+      name = "InlayHints",
+      e = { "<cmd>RustEnableInlayHints<cr>", "Enable InlayHints" },
+      d = { "<cmd>RustDisableInlayHints<cr>", "Disable InlayHints" },
+    },
+    c = { "<cmd>RustOpenCargo<cr>", "RustOpenCargo" },
+    p = { "<cmd>RustParentModule<cr>", "RustParentModule" },
+    w = { "<cmd>RustReloadWorkspace<cr>", "RustReloadWorkspace" },
   },
 
   d = {

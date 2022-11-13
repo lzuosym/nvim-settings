@@ -9,11 +9,12 @@ local ftMap = {
   python = { 'indent' },
   git = '',
   yaml = 'indent',
+  rust = 'indent',
 }
 
 local opt = {
   open_fold_hl_timeout = 150,
-  close_fold_kinds = { 'imports', 'comment' },
+  close_fold_kinds = { 'imports', 'comment' , 'use' },
   preview = {
     win_config = {
       border = { '', '─', '', '', '', '─', '', '' },
@@ -33,8 +34,9 @@ local opt = {
 
     -- if you prefer treesitter provider rather than lsp,
     -- return ftMap[filetype] or {'treesitter', 'indent'}
-    return {'treesitter', 'indent'}
-    --[[ return ftMap[filetype] ]]
+    -- return {'treesitter', 'indent'}
+    return ftMap[filetype]
+    -- return nil
   end
 }
 ufo.setup(opt)

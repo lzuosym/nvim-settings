@@ -18,3 +18,4 @@ require 'user.lsp.textobjects'
 require 'user.lsp.signature'
 require 'user.lsp.lspkind'
 require "user.lsp.rust-tools"
+require "user.lsp.fidget"

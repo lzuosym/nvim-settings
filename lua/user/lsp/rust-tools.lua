@@ -9,7 +9,7 @@ end
 --  ~/.vscode/extensions/
 local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
 local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 local opts = {
   tools = { -- rust-tools options
@@ -91,7 +91,7 @@ local opts = {
       -- Backend used for displaying the graph
       -- see: https://graphviz.org/docs/outputs/
       -- default: x11
-      backend = "x11",
+      backend = "png",
       -- where to store the output, nil for no output stored (relative
       -- path from pwd)
       -- default: nil

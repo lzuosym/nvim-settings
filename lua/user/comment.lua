@@ -75,6 +75,9 @@ comment.setup {
   ---@type fun(ctx):string
   -- pre_hook = nil,
   pre_hook = function(ctx)
+    if vim.bo.filetype == 'lua' then
+      return "--%s"
+    end
     local U = require "Comment.utils"
 
     local location = nil

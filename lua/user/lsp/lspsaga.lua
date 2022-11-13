@@ -15,13 +15,14 @@ saga.init_lsp_saga({
   },
   -- preview lines of lsp_finder and definition preview
   max_preview_lines = 30,
+  finder_request_timeout = 2500,
 
   code_action_lightbulb = {
     enable = true,
     enable_in_insert = true,
     cache_code_action = true,
     sign = true,
-    update_time = 850,
+    update_time = 1850,
     sign_priority = 20,
     virtual_text = true,
   },

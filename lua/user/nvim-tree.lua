@@ -18,6 +18,7 @@ local function print_node_path(node)
 end
 
 nvim_tree.setup {
+  highlight_focused_file = true,
   respect_buf_cwd = true,  -- for projects plugin
   auto_reload_on_write = true,
   disable_netrw = true,
