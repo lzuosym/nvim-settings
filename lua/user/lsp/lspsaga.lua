@@ -15,15 +15,29 @@ saga.init_lsp_saga({
   },
   -- preview lines of lsp_finder and definition preview
   max_preview_lines = 30,
-  finder_request_timeout = 2500,
+  finder_request_timeout = 1000,
 
   code_action_lightbulb = {
     enable = true,
     enable_in_insert = true,
     cache_code_action = true,
     sign = true,
-    update_time = 1850,
+    update_time = 850,
     sign_priority = 20,
     virtual_text = true,
+  },
+  -- show outline
+  show_outline = {
+    win_position = 'right',
+    --set special filetype win that outline window split.like NvimTree neotree
+    -- defx, db_ui
+    win_with = '',
+    win_width = 40,
+    auto_enter = true,
+    auto_preview = false,
+    virt_text = '┃',
+    jump_key = 'o',
+    -- auto refresh when change buffer
+    auto_refresh = true,
   },
 })

@@ -1,3 +1,4 @@
+require "user.core.keymaps"
 require "user.core.options"
 require "user.core.plugins"
 
@@ -23,7 +24,7 @@ require "user.nvim-tree"
 require "user.bufferline"
 require "user.close-buffers"
 require "user.lualine"
---[[ require "user.autosave" ]]
+require "user.autosave"
 require "user.toggleterm"
 require "user.impatient"
 require "user.possession"
@@ -37,4 +38,3 @@ require "user.indentline"
 require "user.cheat-sheet"
 require "user.lsp.dap-virtual-text"
 require "user.ufo"
-require "user.core.keymaps"

@@ -127,7 +127,12 @@ cmp.setup({
   --[[   end, ]]
   --[[ }, ]]
   sources = {
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp",
+      -- filter out text snippet from lsp: https://stackoverflow.com/questions/73092651/neovim-how-to-filter-out-text-snippets-from-nvim-lspconfig-nvim-cmp
+      entry_filter = function(entry, _)
+        return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+      end
+    },
     { name = "vsnip" },
     { name = "nvim_lua" },
     { name = "luasnip" },

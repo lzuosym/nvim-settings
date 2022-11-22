@@ -37,6 +37,13 @@ packer.init({
       return require("packer.util").float({ border = "rounded" })
     end,
   },
+  max_jobs = 60, -- https://github.com/wbthomason/packer.nvim/issues/746
+  ensure_dependencies   = true, -- Should packer install plugin dependencies?
+  log = { level = 'info' }, -- The default print log level. One of: "trace", "debug", "info", "warn", "error", "fatal".
+  profile = {
+    enable = true,
+    threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+  },
 })
 
 -- Install your plugins here
@@ -53,7 +60,7 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim")
   use("akinsho/bufferline.nvim")
   use("moll/vim-bbye")
-  --[[ use "Pocco81/auto-save.nvim" ]]
+  use "Pocco81/auto-save.nvim"
   use("akinsho/toggleterm.nvim")
   use("ahmedkhalf/project.nvim")
   use("lewis6991/impatient.nvim")
@@ -80,18 +87,23 @@ return packer.startup(function(use)
     ft = { "markdown" },
   })
 
+  use("kevinhwang91/promise-async")
   use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
   -- Colorschemes
   -- use("lunarvim/darkplus.nvim")
-  -- use("folke/tokyonight.nvim")
+  use("folke/tokyonight.nvim")
   use("olimorris/onedarkpro.nvim")
-  use("dracula/vim")
+  -- use('Mofiqul/dracula.nvim')
+  use('dracula/vim')
   use("sainnhe/sonokai")
+  use("sainnhe/everforest")
+  use("sainnhe/gruvbox-material")
+  use("ellisonleao/gruvbox.nvim")
   use("tanvirtin/monokai.nvim")
-  -- use("lunarvim/Onedarker.nvim")
-  -- use("bluz71/vim-nightfly-guicolors")
-  --[[ use 'navarasu/onedark.nvim' ]]
+  use("lunarvim/Onedarker.nvim")
+  use("bluz71/vim-nightfly-guicolors")
+  -- use 'navarasu/onedark.nvim'
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -119,9 +131,12 @@ return packer.startup(function(use)
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
   use("theHamsta/nvim-dap-virtual-text")
   use("folke/trouble.nvim") -- A pretty diagnostics, references, telescope results, quickfix and location list
+  use("Maan2003/lsp_lines.nvim") -- https://github.com/Maan2003/lsp_lines.nvim/
   use("ray-x/lsp_signature.nvim")
-  -- breaks rust
-  --[[ use 'nvim-treesitter/nvim-treesitter-textobjects' ]]
+  -- https://github.com/simrat39/symbols-outline.nvim/issues/176
+  -- use({ "simrat39/symbols-outline.nvim", branch = "master" })
+  -- breaks rust ????
+  use('nvim-treesitter/nvim-treesitter-textobjects')
   use("onsails/lspkind.nvim")
   use("j-hui/fidget.nvim")
 
@@ -130,10 +145,7 @@ return packer.startup(function(use)
   -- use 'sbdchd/neoformat'
 
   -- Test
-  use({
-    "nvim-neotest/neotest",
-    requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "antoinemadec/FixCursorHold.nvim" },
-  })
+  -- use({ "nvim-neotest/neotest", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "antoinemadec/FixCursorHold.nvim" }, })
 
   --  Rust
   use("simrat39/rust-tools.nvim")
@@ -156,13 +168,13 @@ return packer.startup(function(use)
   })
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("nvim-treesitter/playground")
-  use("simrat39/symbols-outline.nvim")
   use("nvim-treesitter/nvim-treesitter-context")
+  use("p00f/nvim-ts-rainbow")
 
   -- Git
   use({
     "lewis6991/gitsigns.nvim",
-    --[[ tag = 'release' -- To use the latest release ]]
+    -- tag = 'release' -- To use the latest release
   })
   use("f-person/git-blame.nvim")
 

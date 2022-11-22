@@ -41,7 +41,7 @@ project.setup({
   ---@usage path to store the project history for use in telescope
   datapath = vim.fn.stdpath("data"),
 
-    -- Don't calculate root dir on specific directories
+  -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
   exclude_dirs = { "~/.cargo/*" },
 })

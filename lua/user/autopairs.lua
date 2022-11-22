@@ -6,23 +6,28 @@ if not status_ok then
 end
 
 npairs.setup {
-  check_ts = true,
+  check_ts = true, -- ts: TreeSitter
   ts_config = {
     lua = { "string", "source" },
+    rust = { "string", "source" },
     javascript = { "string", "template_string" },
     java = false,
   },
+  -- :echo &ft
   disable_filetype = { "TelescopePrompt", "spectre_panel" },
   fast_wrap = {
-    map = "<M-r>",
-    chars = { "{", "[", "(", '"', "'" },
-    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+    map = "<C-f>",
+    chars = { '{', '[', '(', '"', "'" },
+    pattern = [=[[%'%"%)%>%]%)%}%,]]=],
+    -- pattern = string.gsub([[ [%'%"%)%]%)%}%,] ]], "%s+", ""),
     offset = 0, -- Offset from pattern match
     end_key = "$",
     keys = "qwertyuiopzxcvbnmasdfghjkl",
     check_comma = true,
-    highlight = "PmenuSel",
-    highlight_grey = "LineNr",
+    -- highlight = "PmenuSel",
+    -- highlight_grey = "LineNr",
+    highlight = 'Search',
+    highlight_grey = 'Comment'
   },
 }
 

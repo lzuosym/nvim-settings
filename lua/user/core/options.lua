@@ -60,8 +60,10 @@ local options = {
   pumheight = 10, -- pop up menu height
   showtabline = 2, -- always show tabs
 
-  --[[ foldcolumn = '1', ]]
+  -- for ufo folding
+  -- foldcolumn = '1', 
   foldlevel = 99,
+  -- foldlevel = 0,
   foldlevelstart = 99,
   foldenable = true,
 }

@@ -16,12 +16,13 @@ null_ls.setup({
   sources = {
     -- formatting
     formatting.eslint_d,
+    formatting.buf,
     formatting.clang_format,
     --[[ formatting.rustfmt, ]]
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     -- formatting.black.with({ extra_args = { "--fast" } }), -- if you don't need sanity check
     formatting.black,
-    formatting.stylua,
+    -- formatting.stylua,
 
     -- diagnostics
     diagnostics.flake8,

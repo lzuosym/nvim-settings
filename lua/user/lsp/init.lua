@@ -4,7 +4,8 @@ if not status_ok then
   return
 end
 
-LSP_SERVERS = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html",
+-- LSP_SERVERS = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "clangd", "tsserver", "gopls", "cmake", "html", "bufls",
+LSP_SERVERS = { "jsonls", "sumneko_lua", "pyright", "yamlls", "bashls", "tsserver", "gopls", "cmake", "html", "bufls","clangd",
   "dockerls"}
   --[[ "dockerls", "rust_analyzer"} ]]
 
@@ -15,6 +16,7 @@ require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
 require "user.lsp.dap-virtual-text"
 require 'user.lsp.textobjects'
+-- require 'user.lsp.lsp_lines'
 require 'user.lsp.signature'
 require 'user.lsp.lspkind'
 require "user.lsp.rust-tools"
