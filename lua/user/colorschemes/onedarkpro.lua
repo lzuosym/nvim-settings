@@ -9,8 +9,6 @@ local function getTheme()
 end
 
 onedarkpro.setup({
-  dark_theme = "onedark", -- The default dark theme
-  light_theme = "onelight", -- The default light theme
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
   theme = getTheme(),
   --   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes

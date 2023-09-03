@@ -9,7 +9,7 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
-local completion = null_ls.builtins.completion
+-- local completion = null_ls.builtins.completion
 
 null_ls.setup({
   debug = false,
@@ -27,8 +27,9 @@ null_ls.setup({
     -- diagnostics
     diagnostics.flake8,
     diagnostics.eslint,
+    diagnostics.write_good,
 
     -- completion
-    completion.spell,
+    -- completion.spell, -- break gq{normal} ??????
   },
 })

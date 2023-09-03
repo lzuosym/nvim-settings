@@ -3,11 +3,11 @@ return {
     yaml = {
       yamlVerson = "1.2",
       format = {
-        enable = true,
-        singleQuote = true,
+        -- enable = true,
+        -- singleQuote = true,
       },
-      validate = true,
-      hover = true,
+      -- validate = true,
+      -- hover = true,
     },
   },
 }

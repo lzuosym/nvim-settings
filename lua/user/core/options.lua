@@ -18,17 +18,17 @@ local options = {
   smartcase = true, -- smart case
 
   -- appearance
-  cursorline = true, -- highlight the current line
-  guifont = "monospace:h17", -- the font used in graphical neovim applications
+  cursorline = false, -- highlight the current line
+  guifont = 'monospace:h17', -- the font used in graphical neovim applications
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   termguicolors = true, -- set term gui colors (most terminals support this)
   --[[ background = "dark", ]]
 
   -- backspace
-  backspace = "indent,eol,start",
+  backspace = 'indent,eol,start',
 
   -- clipboard
-  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  clipboard = 'unnamedplus', -- allows neovim to access the system clipboard
 
   -- split windows
   splitbelow = true, -- force all horizontal splits to go below current window

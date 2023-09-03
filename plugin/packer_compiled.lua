@@ -309,7 +309,7 @@ _G.packer_plugins = {
   ["nvim-spectre"] = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/nvim-spectre",
-    url = "https://github.com/windwp/nvim-spectre"
+    url = "https://github.com/nvim-pack/nvim-spectre"
   },
   ["nvim-surround"] = {
     loaded = true,
@@ -406,6 +406,11 @@ _G.packer_plugins = {
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  sniprun = {
+    loaded = true,
+    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/sniprun",
+    url = "https://github.com/michaelb/sniprun"
+  },
   sonokai = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/sonokai",
@@ -455,11 +460,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/leon/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  ["vim-bookmarks"] = {
-    loaded = true,
-    path = "/Users/leon/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
-    url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
   ["vim-nightfly-guicolors"] = {
     loaded = true,

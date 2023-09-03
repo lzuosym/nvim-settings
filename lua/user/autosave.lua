@@ -35,7 +35,14 @@ autosave.setup({
     enabling = nil, -- ran when enabling auto-save
     disabling = nil, -- ran when disabling auto-save
     before_asserting_save = nil, -- ran before checking `condition`
-    before_saving = nil, -- ran before doing the actual save
-    after_saving = nil -- ran after doing the actual save
+    -- before_saving = nil, -- ran before doing the actual save
+    -- after_saving = nil -- ran after doing the actual save
+    -- https://github.com/Pocco81/auto-save.nvim/issues/56
+    before_saving = function()
+      vim.notify("hello autosave before_saving callback")
+      -- if vim.fn.getbufvar(buf, '&filetype' == 'rust') then
+      --   vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format( { async = false })]]
+      -- end
+    end,
   }
 })

@@ -70,13 +70,14 @@ return packer.startup(function(use)
   use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
   use("folke/which-key.nvim")
   use("kazhala/close-buffers.nvim")
-  use("MattesGroeger/vim-bookmarks")
+  -- use("MattesGroeger/vim-bookmarks")
   use("ThePrimeagen/harpoon")
   use("Djancyp/cheat-sheet")
   use("kylechui/nvim-surround")
   use("dstein64/nvim-scrollview")
-  use("windwp/nvim-spectre")
+  use("nvim-pack/nvim-spectre")
   use({ "mg979/vim-visual-multi", branch = "master" })
+  use { 'michaelb/sniprun', run = 'sh ./install.sh'}
 
   use({
     "iamcco/markdown-preview.nvim",
@@ -92,7 +93,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use("lunarvim/darkplus.nvim")
-  use("folke/tokyonight.nvim")
+  use 'folke/tokyonight.nvim'
   use("olimorris/onedarkpro.nvim")
   -- use('Mofiqul/dracula.nvim')
   use('dracula/vim')
@@ -125,7 +126,7 @@ return packer.startup(function(use)
 
   -- LSP server configuration
   use("neovim/nvim-lspconfig") -- enable LSP
-  use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use({ "glepnir/lspsaga.nvim", branch = "main", requires = { {"nvim-tree/nvim-web-devicons"} } })
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })

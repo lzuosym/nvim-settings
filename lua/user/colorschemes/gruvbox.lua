@@ -9,7 +9,12 @@ gruvbox.setup({
   undercurl = false,
   underline = false,
   bold = true,
-  italic = true,
+  italic = {
+    strings = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
   strikethrough = true,
   invert_selection = false,
   invert_signs = false,

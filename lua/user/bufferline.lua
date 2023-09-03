@@ -15,8 +15,8 @@ bufferline.setup({
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
     indicator_style = "▎",
-    buffer_close_icon = "",
-    -- buffer_close_icon = '',
+    -- buffer_close_icon = "",
+    buffer_close_icon = '',
     modified_icon = "●",
     close_icon = "",
     -- close_icon = '',
@@ -75,7 +75,7 @@ bufferline.setup({
   },
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
+      fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     background = {
