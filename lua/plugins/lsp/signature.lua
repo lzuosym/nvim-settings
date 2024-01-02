@@ -1,5 +1,5 @@
 return {
-  "ay-x/lsp_signature.nvim",
+  "ray-x/lsp_signature.nvim",
   config = function()
     local cfg = {
       debug = false,                                              -- set to true to enable debug logging
@@ -14,7 +14,7 @@ return {
       -- This setting only take effect in insert mode, it does not affect signature help in normal
       -- mode, 10 by default
 
-      max_height = 2,                        -- max height of signature floating_window
+      max_height = 20,                        -- max height of signature floating_window
       max_width = 120,                       -- max_width of signature floating_window
       wrap = true,                           -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
 

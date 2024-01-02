@@ -96,7 +96,7 @@ end
 M.on_attach = function(client, bufnr)
   --[[ if client.name == "tsserver" or client.name == "clangd" or client.name == "rust_analyzer" then ]]
   -- if client.name == "tsserver" or client.name == "clangd" then
-  if client.name == "clangd" then
+  if client.name == "clangd" or client.name == "yamlls" then
     client.server_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)

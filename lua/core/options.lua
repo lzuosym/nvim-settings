@@ -78,7 +78,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
--- Save last cursor position whenfile reopen
+-- Save last cursor position when files reopen
 vim.cmd([[
 augroup vimrc-remember-cursor-position
     autocmd!

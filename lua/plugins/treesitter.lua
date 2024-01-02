@@ -28,10 +28,7 @@ return {
       },
       --  indent = { enable = true, disable = { "yaml" } },
       indent = { enable = true },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false, -- ????
-      },
+      enable_autocmd = false,   -- ????
 
       incremental_selection = {
         enable = true,

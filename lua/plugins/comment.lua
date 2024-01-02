@@ -1,8 +1,11 @@
 return {
   "numToStr/Comment.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
   config = function()
     local comment = require("Comment")
+    local ft = require("Comment.ft");
+    ft({ 'go', 'rust' }, { '//%s', '/*%s*/' })
+    ft({ 'toml', 'graphql' }, '#%s')
 
     comment.setup {
       ---Add a space b/w comment and the line
@@ -92,6 +95,5 @@ return {
         }
       end,
     }
-
   end
 }

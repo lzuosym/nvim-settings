@@ -6,7 +6,7 @@ require "core.options"
 require "lazy-plugins"
 
 -- require "user.bookmark"
--- require "user.colorschemes"
+require "colorschemes"
 -- require "user.cmp"
 require "lsp"
 -- require "user.dap"
